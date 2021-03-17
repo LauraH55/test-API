@@ -11,7 +11,7 @@ class ApiController extends AbstractController
     /**
      * @Route("/", name="api_home", methods="GET")
      */
-    public function home(): Response
+    public function home(Response $response): Response
     {
         $users = [
             'Emilie'=> 'emilie@emilie.com',
@@ -21,13 +21,15 @@ class ApiController extends AbstractController
             'Laura' => 'laura@laura.com'
         ];
 
+        $response->headers->set('Access-Control-Allow-Origin', 'http:localhost:8080', 'POST, GET, OPTIONS');
+
         return $this->json($users);
     }
 
     /**
      * @Route("/api-roles", name="api_roles", methods="GET")
      */
-    public function roles()
+    public function roles(Response $response)
     {
         $roles = [
             0 => 'Scrum Master',
@@ -36,6 +38,8 @@ class ApiController extends AbstractController
             3 => 'Lead Dev Back',
             4 => 'Git Master',
         ];
+
+        $response->headers->set('Access-Control-Allow-Origin', 'http:localhost:8080', 'POST, GET, OPTIONS');
 
         return $this->json($roles);
     }
