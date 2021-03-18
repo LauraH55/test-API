@@ -23,7 +23,7 @@ class ApiController extends AbstractController
 
     
 
-        return $this->json($users);
+        return $this->json($users, 200, ['Access-Control-Allow-Origin' =>'*']);
     }
 
     /**
