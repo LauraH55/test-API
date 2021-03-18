@@ -14,16 +14,31 @@ class ApiController extends AbstractController
     public function home(): Response
     {
         $users = [
-            'Emilie'=> 'emilie@emilie.com',
-            'Kevin' => 'kevin@kevin.com',
-            'Alexia' => 'alexia@alexia.com',
-            'Yael' => 'yael@yael.com',
-            'Laura' => 'laura@laura.com'
+            0 => 'Emilie',
+            1 => 'Kevin',
+            2 => 'Alexia',
+            3 => 'Yael',
+            4 => 'Laura',
         ];
 
-    
-
+        
         return $this->json($users, 200, ['Access-Control-Allow-Origin' =>'*']);
+    }
+
+    /**
+     * @Route("/api-mail", name="api_mail"), methods="GET")
+     */
+    public function mail()
+    {
+        $email = [
+            0 => 'emilie@emilie.com',
+            1 => 'kevin@kevin.com',
+            2 => 'alexia@alexia.com',
+            3 => 'yael@yael.com',
+            4 =>'laura@laura.com'
+        ];
+
+        return $this->json($email, 200, ['Access-Control-Allow-Origin' =>'*']);
     }
 
     /**
